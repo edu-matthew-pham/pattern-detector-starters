@@ -69,4 +69,4 @@ few lines of numpy you can read.
 
 ## Licences
 
-The image model is MobileNetV2 (Keras Applications, Apache-2.0). Test photos are CC0; see `test-files/README.md`.
+Code: MIT (see `LICENSE`). The image model is MobileNetV2 (Keras Applications, Apache-2.0). Test photos are CC0; see `test-files/README.md`.
