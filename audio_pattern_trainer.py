@@ -11,7 +11,8 @@
 #   4. ADAPT the responses and threshold
 #
 # Only YAMNet's 521 sound scores are used, about one set per second.
-# A longer recording is scored each second and the results averaged.
+# A longer recording: it listens to the loudest second, so a short
+# sound isn't drowned out by the quiet around it.
 #
 # TIP: record your examples in the same room (and with the same
 # microphone) you'll use the app in. Background noise matters.
@@ -35,6 +36,8 @@ def classify(sound):
     # Gradio gives (sample_rate, samples); pattern_model.py handles both
     if sound is None:
         return "Record or upload a sound first."
+    # ADAPT: for a steady sound (an engine, rain), average every second:
+    #   label, score = model.top(sound, average=True)
     label, score = model.top(sound)
     if label is None:
         return "That recording was empty. Try again."
