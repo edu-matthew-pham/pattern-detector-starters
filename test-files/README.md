@@ -1,6 +1,8 @@
 # Test files
 
-Photos for checking the starter runs before you adapt it. With the sample `my_model.json`:
+Photos for checking the starters run before you adapt them.
+
+With the sample `my_model.json` (run `image_pattern_trainer.py`):
 
 | File | Expect |
 |---|---|
@@ -10,5 +12,14 @@ Photos for checking the starter runs before you adapt it. With the sample `my_mo
 Then try something that is neither, like your hand or a book. The model still has to pick Cat or Coffee,
 and it may be very sure about it. That's worth thinking about when you design your own classes.
 
-**Credits:** both photos are from the [scikit-image](https://scikit-image.org) sample data and free to reuse
-(CC0): `cat.jpg` by Stefan van der Walt, `coffee.jpg` by Rachel Michetti.
+With the sample `my_pose_model.json` (run `pose_pattern_trainer.py`):
+
+| File | Expect |
+|---|---|
+| `person_upright.jpg` | Upright |
+| `person_leaning.jpg` | Leaning |
+| `cat.jpg` | "I can't see a person" |
+
+**Credits:** all four photos come from the [scikit-image](https://scikit-image.org) sample data and are free to
+reuse. `cat.jpg` (Stefan van der Walt) and `coffee.jpg` (Rachel Michetti) are CC0. `person_upright.jpg` and
+`person_leaning.jpg` (rotated) are the astronaut photo of Eileen Collins (NASA, public domain).
