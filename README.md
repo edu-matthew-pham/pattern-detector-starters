@@ -75,6 +75,13 @@ few lines of numpy you can read.
 - **"I can't see a person"** (poses): stand back so your whole body is in view, with good light.
 - **Webcam doesn't show**: allow camera access in the browser, and close other apps using the camera.
 
+## Acknowledgements
+
+Models come from the [Pattern Trainer](https://tools.learningwaypoints.com/trainer/), which is inspired by Google's
+[Teachable Machine](https://teachablemachine.withgoogle.com/). The starters use Google's
+[MediaPipe](https://ai.google.dev/edge/mediapipe) and [Gradio](https://www.gradio.app/). Made by Matthew Pham with help from
+Claude (Anthropic).
+
 ## Licences
 
 Free for teachers, students, schools and other non-commercial use under the [PolyForm Noncommercial License 1.0.0](LICENSE); commercial use needs permission (contact [Matthew Pham on GitHub](https://github.com/edu-matthew-pham)). Copyright 2026 Matthew Pham. The image model is MobileNetV2 (Keras Applications, Apache-2.0); the pose model is Google's MediaPipe Pose
