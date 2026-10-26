@@ -65,6 +65,11 @@ pictures, 66 for poses), `pattern_model.pose_points(image)` gives the 33 body po
 `model.predict(image)` shows the confidence for every class. `pattern_model.py` runs the trained part with a
 few lines of numpy you can read.
 
+## Project briefs
+
+What to build, and what to hand in: see [`briefs/`](briefs/README.md). There are three: rules you write yourself (A),
+a model you train (B), in either order, then both together (C).
+
 ## If something goes wrong
 
 - **"Can't find 'my_model.json'"**: the file has to be in the same folder as the starter, named exactly
