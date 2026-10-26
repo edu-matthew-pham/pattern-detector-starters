@@ -77,5 +77,5 @@ few lines of numpy you can read.
 
 ## Licences
 
-Code: MIT (see `LICENSE`). The image model is MobileNetV2 (Keras Applications, Apache-2.0); the pose model is Google's MediaPipe Pose
+Free for teachers, students, schools and other non-commercial use under the [PolyForm Noncommercial License 1.0.0](LICENSE); commercial use needs permission (contact [Matthew Pham on GitHub](https://github.com/edu-matthew-pham)). Copyright 2026 Matthew Pham. The image model is MobileNetV2 (Keras Applications, Apache-2.0); the pose model is Google's MediaPipe Pose
 Landmarker (Apache-2.0). Test photos are CC0; see `test-files/README.md`.
