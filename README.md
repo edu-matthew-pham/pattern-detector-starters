@@ -5,7 +5,7 @@ classes. Each starter runs as-is, then you change the lines marked `# ADAPT:` to
 
 | Your idea involves... | Start from |
 |---|---|
-| Recognising YOUR own categories in photos, trained in the [Pattern Trainer](https://edu-matthew-pham.github.io/waypoints-tools/trainer/) | `image_pattern_trainer.py` |
+| Recognising YOUR own categories in photos, trained in the [Pattern Trainer](https://tools.learningwaypoints.com/trainer/) | `image_pattern_trainer.py` |
 
 ## Set up (once)
 
@@ -37,7 +37,7 @@ Open the address it prints (usually `http://127.0.0.1:7860`) and try the photos 
 
 ## Make it yours
 
-1. Open the [Pattern Trainer](https://edu-matthew-pham.github.io/waypoints-tools/trainer/), make your classes,
+1. Open the [Pattern Trainer](https://tools.learningwaypoints.com/trainer/), make your classes,
    add examples, train and test.
 2. Click **Download my_model.json** and move it into this folder, replacing the sample.
 3. Run the starter again. Your class names come from the file, so there's nothing to type.

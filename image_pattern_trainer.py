@@ -5,7 +5,7 @@
 #
 # To make it yours:
 #   1. Train your classes in the Pattern Trainer:
-#      https://edu-matthew-pham.github.io/waypoints-tools/trainer/
+#      https://tools.learningwaypoints.com/trainer/
 #   2. Click "Download my_model.json"
 #   3. Move YOUR my_model.json into this folder (replace the sample)
 #   4. ADAPT the responses and threshold
