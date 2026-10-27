@@ -3,7 +3,7 @@
 A **pattern detector** is an app that sorts an input (some text, a photo, a pose, a sound) into groups and responds
 in a useful way. There are two ways to build the sorting part, and a third project that uses both.
 
-| Brief | How it sorts | When |
+| Brief | How it sorts | Order |
 |---|---|---|
 | [A. Rules](A-rules.md) | You write the rules yourself, with `if` statements and lookups, on text, answers, colours or sounds | Any order |
 | [B. Trained](B-trained.md) | You train a model on examples in the [Pattern Trainer](https://tools.learningwaypoints.com/trainer/) | Any order |
@@ -22,13 +22,10 @@ the rules: every breed, angle, colour and lighting. You'd never finish. Machine 
 from lots of examples, then using what it learned on things it has never seen. The trade-off: it can be very sure and
 still wrong, and it can't tell you why.
 
-## Every brief: make it useful for a real person
+## Make it useful for a real person
 
-Whichever brief you do, your app is for someone. Before you build, write one sentence: *who is it for, and what
-problem does it solve for them?* Then check your app against this list:
+Whatever you build, it's for someone. Before you start, write one sentence: *who is it for, and what does it help them do?*
 
-- **Clear result:** says what it found in words your user understands, not just a label.
-- **Honest confidence:** shows how sure it is, or says when it can't tell, instead of guessing.
-- **Useful response:** does something with the result (advice, a next step, a score), not just reports it.
-- **Fits your user:** settings, toggles or inputs that let them make it their own.
-- **Tested:** you've tried it with inputs you didn't design it around, and kept a record.
+Each brief ends with a "Check your app" list. Use it before you hand in.
+
+No camera or microphone? Every step also works with uploaded photos or .wav sound files.

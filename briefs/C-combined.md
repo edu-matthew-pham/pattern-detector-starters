@@ -15,14 +15,15 @@ input  →  trained model  →  label + how sure  →  your rules  →  response
                                                    settings)         a next step)
 ```
 
-Your rules should use the confidence too. What does your app do when the model isn't sure?
+Your rules should use how sure the model is (its confidence) too. What does your app do when it isn't sure?
 
 ## Ideas
 
 - **Recipe helper:** a model recognises ingredients in a photo; rules suggest a recipe that fits the user's dietary
   needs.
 - **Singing or playing coach:** a model recognises the instrument; rules work out the note being played from its
-  pitch and check it against the song (like SingStar).
+  pitch and check it against the song (like a karaoke game that scores your singing). You can reuse `measure.py`
+  from the sound rules starter.
 - **Language revision:** a model hears a word spoken in another language; a rules-based dictionary shows or says the
   English meaning and keeps score.
 - **Workout timer:** a model recognises the exercise pose; rules count time in the pose and only count it when the
@@ -31,7 +32,7 @@ Your rules should use the confidence too. What does your app do when the model i
 
 ## What you'll do
 
-1. **Pick a problem and a user.** Write one sentence: who is it for, and what will it do for them?
+1. **Pick a problem and a user.** Write one sentence: who is it for, and what will it tell or do for them?
 2. **Draw your pipeline** like the diagram above. Label which part is trained and which is rules, and say why each
    part is done that way.
 3. **Build and test each part on its own,** then join them.
@@ -48,7 +49,7 @@ Your rules should use the confidence too. What does your app do when the model i
 ## Check your app
 
 - **Clear result** in words your user understands.
-- **Honest confidence:** low-confidence results are handled, not hidden.
+- **Honest about how sure it is:** low-confidence results are handled, not hidden.
 - **Useful response** that needs both parts.
 - **Fits your user:** settings or options they can change.
 - **Tested** as a whole, not just part by part.

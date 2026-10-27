@@ -11,17 +11,18 @@ group, and it finds its own patterns. Then it uses those patterns on things it h
 
 ## What you'll do
 
-1. **Pick a problem and a user.** Write one sentence: who is it for, and what will it tell them?
-2. **Plan your classes.** Two to five groups, plus a "nothing" class if your app will often see none of them.
+1. **Pick a problem and a user.** Write one sentence: who is it for, and what will it tell or do for them?
+2. **Plan your classes.** A class is one group, like "cat" or "dog". Pick two to five, plus a "nothing" class if your app will often see none of them.
 3. **Train it** in the [Pattern Trainer](https://tools.learningwaypoints.com/trainer/). Its
    [guide](https://tools.learningwaypoints.com/trainer/guide.html) walks you through collecting examples, training
-   and checking.
+   and checking. Aim for 20 or more examples in each class.
 4. **Try to fool it.** Test it in new places, with new people (who said yes), and with things that aren't any of
    your classes. Record what happens.
 5. **Build the app.** Put your model file in this folder and adapt the starter for your mode:
    `image_pattern_trainer.py`, `pose_pattern_trainer.py` or `audio_pattern_trainer.py`.
-6. **Choose a confidence threshold.** Below it, your app should say it isn't sure rather than guess. Use your testing
-   to pick the number.
+6. **Choose a cut-off.** The starters call how sure the model is its *confidence*, a number from 0 to 1 (0.8 means
+   80% sure). If the model is less sure than your cut-off, your app should say it isn't sure instead of guessing.
+   Use your testing to pick the number.
 7. **Try the other way.** Name one thing in your project a simple rule would do better than the model, and say why.
 
 ## Ideas
@@ -29,8 +30,8 @@ group, and it finds its own patterns. Then it uses those patterns on things it h
 **Pictures**
 - A recycling helper: which bin does this go in?
 - A plant check: does this leaf look healthy or not?
-- A hand-sign counter for a younger sibling learning numbers.
-- A Lego sorter: which kind of brick is this?
+- A hand-sign counter for a younger kid learning numbers.
+- A sorter for any small objects: which kind of brick, button or coin is this?
 
 **Body poses**
 - A squat or plank form coach.
@@ -40,7 +41,7 @@ group, and it finds its own patterns. Then it uses those patterns on things it h
 
 **Sounds**
 - Clap or click commands for an app.
-- An appliance listener: the microwave, the doorbell or the kettle?
+- An appliance listener: the microwave, the doorbell or the kettle? (Record them, or upload sound files.)
 - An instrument identifier.
 - A vocabulary trainer that hears words in another language.
 
@@ -55,7 +56,7 @@ group, and it finds its own patterns. Then it uses those patterns on things it h
 ## Check your app
 
 - **Clear result** in words your user understands.
-- **Honest confidence:** says when it isn't sure.
+- **Honest about how sure it is:** says when it isn't sure.
 - **Useful response:** advice, a next step or a score, not just a label.
 - **Fits your user:** at least one setting or option they can change.
 - **Tested** on things you didn't train it on.
@@ -63,4 +64,5 @@ group, and it finds its own patterns. Then it uses those patterns on things it h
 ## Good habits
 
 Only record yourself, or people who have said yes. Check what's behind you before you record. Your pictures and
-sounds stay on your computer; only the trained numbers go in the model file.
+sounds stay on your computer. The model file only has your class names and trained numbers. A saved project file
+also holds tiny copies of your photos (in Sounds mode, just sound scores), so don't share it if it shows people.
