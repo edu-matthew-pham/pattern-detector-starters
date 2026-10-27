@@ -70,6 +70,18 @@ few lines of numpy you can read.
 What to build, and what to hand in: see [`briefs/`](briefs/README.md). There are three: rules you write yourself (A),
 a model you train (B), in either order, then both together (C).
 
+### Rules starters (Brief A)
+
+No model file needed: these run straight away, and you write the rules.
+
+| Starter | What it does | Try it with |
+|---|---|---|
+| `text_rules.py` | Decodes phrases in a message using a dictionary you write | `ngl idk what brb means lol` |
+| `choice_rules.py` | Plant care advice from a few questions, with the reason for each rule | The sliders |
+| `colour_rules.py` | Fruit ripeness from how much of the photo is green, yellow or brown | `test-files/fruit_*.jpg`, then `cat.jpg` |
+| `sound_rules.py` | Which note you sang or played, and whether it's sharp or flat | `test-files/note_a4*.wav` |
+| `measure.py` | The measuring tools for colours and sounds (loudness, pitch, colour shares) | No need to edit |
+
 ## If something goes wrong
 
 - **"Can't find 'my_model.json'"**: the file has to be in the same folder as the starter, named exactly

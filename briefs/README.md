@@ -5,7 +5,7 @@ in a useful way. There are two ways to build the sorting part, and a third proje
 
 | Brief | How it sorts | When |
 |---|---|---|
-| [A. Rules](A-rules.md) | You write the rules yourself, with `if` statements and lookups | Any order |
+| [A. Rules](A-rules.md) | You write the rules yourself, with `if` statements and lookups, on text, answers, colours or sounds | Any order |
 | [B. Trained](B-trained.md) | You train a model on examples in the [Pattern Trainer](https://tools.learningwaypoints.com/trainer/) | Any order |
 | [C. Combined](C-combined.md) | A trained model feeds your rules | After A and B |
 

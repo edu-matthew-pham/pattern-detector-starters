@@ -1,7 +1,5 @@
 # Brief A: Rules-based pattern detector
 
-> **Outline.** The rules-based starters are still being written. This brief shows the shape of the project.
-
 Build a Python app that sorts an input into groups using **rules you write yourself**, then responds in a useful way.
 
 ## Why rules?
@@ -15,19 +13,29 @@ and fix it.
 
 A slang decoder takes a message, looks each phrase up in a dictionary of slang, and rewrites it in plain English.
 Extra rules handle the tricky parts: phrases of more than one word, capital letters and punctuation, and saying "I
-don't know this one" instead of guessing. Everything the app does can be traced back to a line you wrote.
+don't know this one" instead of guessing. Everything the app does can be traced back to a line you wrote. The
+`text_rules.py` starter is a small decoder like this that you can build on.
 
 ## What you'll do
 
 1. **Pick a problem and a user.** Write one sentence: who is it for, and what will it tell them?
 2. **List your groups and what decides them.** For each group, what can you check? Write the rules in plain English
    first.
-3. **Build the app** with Python and Gradio: inputs, your rules (`if`/`elif`, lookups in a dictionary or list), and a
-   useful response.
+3. **Build the app.** Start from the starter closest to your idea (below) and change the lines marked `# ADAPT:`:
+   your inputs, your rules (`if`/`elif`, lookups in a dictionary or list) and a useful response.
 4. **Test the edges.** Try inputs right on the boundary of a rule, unusual spellings and empty inputs. Fix what
    breaks.
 5. **Try the other way.** Find one input your rules can't handle well, where there'd be too many cases to write
    rules for. Say why a trained model might do better.
+
+## Starters
+
+| Your input is... | Start from | Your rules use |
+|---|---|---|
+| Text someone types | `text_rules.py` | Phrases you look up in a dictionary |
+| Answers to a few questions | `choice_rules.py` | Numbers and choices from sliders and dropdowns |
+| A photo | `colour_rules.py` | How much of the photo is each colour |
+| A sound | `sound_rules.py` | How loud it is and which note it is |
 
 ## Ideas
 
@@ -36,6 +44,8 @@ don't know this one" instead of guessing. Everything the app does can be traced 
 - **Waste sorting by properties:** ask what an item is made of, whether it's clean, and so on, then suggest a bin.
 - **Plant care:** take light, water and temperature readings and recommend an action.
 - **Password checker:** rate a password's strength and explain why.
+- **Colour checker:** which coloured card is held up, or is the water clear or murky?
+- **Noise or note:** a classroom noise meter, or a tuning helper for an instrument.
 
 ## What to hand in
 
