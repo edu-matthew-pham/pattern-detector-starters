@@ -64,8 +64,8 @@ gr.Interface(
 # WANT LIVE VIDEO INSTEAD?
 # Swap the whole gr.Interface block above for this one. It classifies
 # continuously as the camera runs, instead of one photo at a time.
-# Heads up: it runs the model on every frame, so it can be slow —
-# test it before relying on it for a demo.
+# Heads up: it runs the model on every frame, so it can be slow,
+# so test it before relying on it for a demo.
 #
 # gr.Interface(
 #     fn=classify,

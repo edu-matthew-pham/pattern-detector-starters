@@ -8,8 +8,10 @@
 #   1. ADAPT the COLOURS you measure (hue ranges on the colour wheel)
 #   2. ADAPT the rules in check(): the shares and the messages
 #
-# The second picture shows exactly which pixels were counted, in their
-# own colour. Use it to tune your hue ranges.
+# Every colour has a position on a colour wheel, measured in degrees.
+# That position is called its hue. The second picture shows exactly
+# which pixels were counted, in their own colour. Use it to tune your
+# hue ranges.
 #
 # Rules like these work well when you control the conditions: a plain
 # background and steady light. Try it somewhere messy and see what
@@ -22,11 +24,12 @@ from measure import colour_shares
 # ADAPT: the colours you measure, as hue ranges in degrees.
 # The colour wheel: red 0, orange 30, yellow 60, green 120, cyan 180,
 # blue 240, purple 280, red again at 360. "dark" means very dark pixels.
+# Very dark pixels (shadows, a black background) aren't counted unless
+# you add  "dark": "dark"  to this list.
 COLOURS = {
     "green": (75, 160),
     "yellow": (40, 75),
     "brown": (10, 40),
-    "dark": "dark",
 }
 
 
@@ -35,7 +38,7 @@ def check(image):
         return "Upload or take a photo first.", None
     shares, preview = colour_shares(image, COLOURS)
     green, yellow = shares["green"], shares["yellow"]
-    spots = shares["brown"] + shares["dark"]
+    spots = shares["brown"]
     report = ", ".join(f"{name} {share:.0%}" for name, share in shares.items())
 
     # ADAPT: your rules. Check the most specific case first.

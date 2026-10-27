@@ -5,20 +5,20 @@ Build a Python app that sorts an input into groups using **rules you write yours
 ## Why rules?
 
 Some problems can be described exactly. If you can say what to check (does the message contain this phrase? is the
-soil drier than this? does the working show a formula and a substituted value?), then rules are a great fit. They're
+soil drier than this? does the working show a formula and a substituted value?), then rules work well. They're
 quick, predictable, and you can always explain why the app gave its answer. When it's wrong, you can find the rule
 and fix it.
 
-## Worked example: the slang decoder
+## Worked example: a phrase decoder
 
-A slang decoder takes a message, looks each phrase up in a dictionary of slang, and rewrites it in plain English.
+A phrase decoder takes a message, looks each phrase up in a dictionary of texting shorthand or slang, and rewrites it in plain English.
 Extra rules handle the tricky parts: phrases of more than one word, capital letters and punctuation, and saying "I
 don't know this one" instead of guessing. Everything the app does can be traced back to a line you wrote. The
 `text_rules.py` starter is a small decoder like this that you can build on.
 
 ## What you'll do
 
-1. **Pick a problem and a user.** Write one sentence: who is it for, and what will it tell them?
+1. **Pick a problem and a user.** Write one sentence: who is it for, and what will it tell or do for them?
 2. **List your groups and what decides them.** For each group, what can you check? Write the rules in plain English
    first.
 3. **Build the app.** Start from the starter closest to your idea (below) and change the lines marked `# ADAPT:`:
@@ -39,13 +39,13 @@ don't know this one" instead of guessing. Everything the app does can be traced 
 
 ## Ideas
 
-- **Slang decoder:** rewrite a message in plain English.
-- **Maths working feedback:** check whether working shows each step (formula, substitution, answer with units).
-- **Waste sorting by properties:** ask what an item is made of, whether it's clean, and so on, then suggest a bin.
-- **Plant care:** take light, water and temperature readings and recommend an action.
-- **Password checker:** rate a password's strength and explain why.
-- **Colour checker:** which coloured card is held up, or is the water clear or murky?
-- **Noise or note:** a classroom noise meter, or a tuning helper for an instrument.
+- **Phrase decoder** (`text_rules.py`): rewrite a message in plain English.
+- **Maths working feedback** (`text_rules.py`): check whether typed working shows each step (formula, substitution, answer with units).
+- **Waste sorting by properties** (`choice_rules.py`): ask what an item is made of, whether it's clean, and so on, then suggest a bin.
+- **Plant care** (`choice_rules.py`): take light, water and temperature readings and recommend an action.
+- **Password checker** (`text_rules.py`): rate a password's strength and explain why.
+- **Colour checker** (`colour_rules.py`): which coloured card is held up, or is the water clear or murky?
+- **Noise or note** (`sound_rules.py`): a classroom noise meter, or a tuning helper for an instrument.
 
 ## What to hand in
 

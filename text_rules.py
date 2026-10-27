@@ -27,8 +27,11 @@ PHRASES = {
     "np": "no problem",
     "ty": "thank you",
     "on my way": "coming now",
-    "low key": "a little bit / secretly",
+    "low key": "a little bit, or secretly",
 }
+
+# Capital letters in your keys don't matter: they're all made lower case.
+PHRASES = {key.lower(): meaning for key, meaning in PHRASES.items()}
 
 # Longest phrases first, so "on my way" is found before shorter phrases inside it.
 ORDER = sorted(PHRASES, key=len, reverse=True)
@@ -37,10 +40,11 @@ ORDER = sorted(PHRASES, key=len, reverse=True)
 def find_phrases(text):
     """Every known phrase in the text, as (start, end, phrase), left to right, no overlaps."""
     found, taken = [], set()
-    lower = text.lower()
     for phrase in ORDER:
-        # \b means "word edge", so "ty" isn't found inside "party"
-        for m in re.finditer(r"\b" + re.escape(phrase) + r"\b", lower):
+        # The phrase must not touch a letter, digit, ' or - on either side,
+        # so "ty" isn't found inside "party" or "ty's".
+        pattern = r"(?<![\w'-])" + re.escape(phrase) + r"(?![\w'-])"
+        for m in re.finditer(pattern, text, re.IGNORECASE):
             span = set(range(m.start(), m.end()))
             if not span & taken:
                 found.append((m.start(), m.end(), phrase))
@@ -61,7 +65,7 @@ def decode(text):
     plain, last = "", 0
     for start, end, phrase in found:
         meaning = PHRASES[phrase]
-        if text[start].isupper():       # keep a capital letter, e.g. at the start of a sentence
+        if meaning and text[start].isupper():   # keep a capital letter, e.g. at the start of a sentence
             meaning = meaning[0].upper() + meaning[1:]
         plain += text[last:start] + meaning
         last = end

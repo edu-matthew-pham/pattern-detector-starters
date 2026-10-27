@@ -33,7 +33,7 @@ reuse. `cat.jpg` (Stefan van der Walt) and `coffee.jpg` (Rachel Michetti) are CC
 | | `fruit_very_ripe.jpg` | Very ripe |
 | | `cat.jpg` | "Very ripe"! Colour rules only see colour, and the cat is brown. |
 | `sound_rules.py` (aim for A4) | `note_a4.wav` | In tune |
-| | `note_a4_sharp.wav` | Sharp by about 47 cents |
+| | `note_a4_sharp.wav` | Sharp by about 47 cents (100 cents is one piano key, so that's nearly half a key) |
 | | `note_a4_flat.wav` | Flat by about 36 cents |
 
 The cat is worth trying on purpose: rules do exactly what you wrote, even when the answer is silly. What rule would

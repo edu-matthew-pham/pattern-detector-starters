@@ -45,6 +45,9 @@ def colour_shares(image, colours, min_saturation=25, min_brightness=20, ignore_w
     Returns (shares, preview): shares is {"name": share of the counted pixels}, and preview is a
     picture where each counted pixel is painted in its colour, so you can SEE what was measured.
     """
+    for name, rng in colours.items():
+        if rng != "dark" and not (isinstance(rng, (tuple, list)) and len(rng) == 2):
+            raise ValueError(f'Colour "{name}" needs two hue numbers like (75, 160), or the word "dark".')
     rgb, h, s, v = _hsv(image)
     background = (v > 90) & (s < 15) if ignore_white else np.zeros_like(v, bool)
     colourful = (s >= min_saturation) & (v >= min_brightness)
@@ -80,15 +83,8 @@ NOTE_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
 
 def to_samples(sound):
-    """Gradio's (rate, samples) or a .wav path -> (rate, mono float samples from -1 to 1)."""
-    if isinstance(sound, str):
-        import wave
-        with wave.open(sound) as w:
-            rate, width, channels = w.getframerate(), w.getsampwidth(), w.getnchannels()
-            raw = w.readframes(w.getnframes())
-        kind = {1: np.uint8, 2: np.int16, 4: np.int32}[width]
-        samples = np.frombuffer(raw, kind).reshape(-1, channels)
-        sound = (rate, samples)
+    """Gradio's (rate, samples) -> (rate, mono float samples from -1 to 1).
+    Any steady offset from the microphone is removed, so silence measures as silence."""
     rate, samples = sound
     x = np.asarray(samples)
     if x.ndim > 1:
@@ -97,7 +93,8 @@ def to_samples(sound):
         x = (x.astype(np.float64) - 128) / 128
     elif x.dtype.kind == "i":
         x = x.astype(np.float64) / (2 ** (8 * x.dtype.itemsize - 1))
-    return int(rate), x.astype(np.float64)
+    x = x.astype(np.float64)
+    return int(rate), (x - x.mean() if len(x) else x)
 
 
 def loudness(samples):
@@ -112,7 +109,8 @@ def loudest_part(rate, samples, seconds=0.5):
     n = int(rate * seconds)
     if len(samples) <= n:
         return samples
-    energy = np.convolve(np.square(samples), np.ones(n), mode="valid")
+    running = np.concatenate([[0.0], np.cumsum(np.square(samples))])   # running total of loudness
+    energy = running[n:] - running[:-n]                                # total in every stretch of n samples
     start = int(np.argmax(energy))
     return samples[start:start + n]
 
@@ -120,7 +118,9 @@ def loudest_part(rate, samples, seconds=0.5):
 def pitch(rate, samples, lowest=60, highest=1500):
     """The main pitch in Hz (how many vibrations per second), or None if there's no clear note.
 
-    It looks for the time gap after which the sound repeats itself best (autocorrelation).
+    It finds how long the sound takes to repeat itself, and works out the pitch from that.
+    It only looks between `lowest` and `highest` Hz. A note above `highest` can come out as a
+    lower note, and room noise like a fan or hum can throw it off.
     """
     x = samples - np.mean(samples)
     if len(x) < rate / lowest * 2 or loudness(x) < -50:
@@ -142,7 +142,8 @@ def pitch(rate, samples, lowest=60, highest=1500):
     if 0 < k < len(seg) - 1:                     # fine-tune between samples
         a, b, c = seg[k - 1], seg[k], seg[k + 1]
         k = k + 0.5 * (a - c) / (a - 2 * b + c) if (a - 2 * b + c) else k
-    return rate / (lo + k)
+    hz = rate / (lo + k)
+    return hz if lowest <= hz <= highest else None   # outside the range it can measure: no answer
 
 
 def note_of(hz):
@@ -158,7 +159,14 @@ def cents_off(hz, target_note):
     return round(1200 * math.log2(hz / frequency_of(target_note)))
 
 
+FLATS = {"Db": "C#", "Eb": "D#", "Gb": "F#", "Ab": "G#", "Bb": "A#"}
+
+
 def frequency_of(note):
-    """"A4" -> 440.0 Hz."""
-    name, octave = note[:-1], int(note[-1])
-    return 440 * 2 ** ((NOTE_NAMES.index(name) + 12 * (octave + 1) - 69) / 12)
+    """"A4" -> 440.0 Hz. Sharps and flats work: "C#4", "Bb3"."""
+    import re
+    m = re.fullmatch(r"([A-G])([#b]?)(-?\d)", note.strip())
+    if not m:
+        raise ValueError(f'"{note}" isn\'t a note I can read. Write notes like A4, C#4 or Bb3.')
+    name = FLATS.get(m.group(1) + m.group(2), m.group(1) + (m.group(2) if m.group(2) == "#" else ""))
+    return 440 * 2 ** ((NOTE_NAMES.index(name) + 12 * (int(m.group(3)) + 1) - 69) / 12)
