@@ -29,3 +29,5 @@ Whatever you build, it's for someone. Before you start, write one sentence: *who
 Each brief ends with a "Check your app" list. Use it before you hand in.
 
 No camera or microphone? Every step also works with uploaded photos or .wav sound files.
+
+Teachers: hints, examples of finished apps and teacher exemplars for every brief are planned in [PLAN.md](PLAN.md).
