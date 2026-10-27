@@ -51,7 +51,7 @@ group, and it finds its own patterns. Then it uses those patterns on things it h
 - **Testing record:** a table with the input, what you expected, what the app said and how sure it was. Include at
   least five inputs it hadn't seen before, and at least two things that aren't any of your classes.
 - **Reflection:** what fooled it, and what you changed because of it (more examples, a new class, a different
-  threshold), the rule-versus-model point from step 7, and who could be affected if your app got it wrong.
+  cut-off), the rule-versus-model point from step 7, and who could be affected if your app got it wrong.
 
 ## Check your app
 
